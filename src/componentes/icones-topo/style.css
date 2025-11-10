@@ -1,0 +1,51 @@
+/* ÍCONES DO TOPO */
+.icones-topo {
+  gap: clamp(10px, 2vw, 20px); /* Gap responsivo */
+  list-style: none;
+  align-items: center;
+  position: absolute;
+  right: 2%;
+  display: flex;
+}
+
+.itens-icones-topo {
+  width: clamp(1.5rem, 4vw, 2rem); /* Largura responsiva */
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.itens-icones-topo:hover {
+  scale: 108%;
+}
+
+
+
+
+
+/* MEDIA QUERIES PARA RESPONSIVIDADE */
+
+/* Tablet */
+@media (max-width: 1208px) { 
+  .icones-topo {
+    gap: 1rem;
+    margin-right: 0.3rem;
+    position: fixed;
+    right: 10px;
+    top: 1%;
+    order: 2;
+  }
+}
+
+/*  ---------------------  Mobile */
+@media (max-width: 480px) {  
+  .icones-topo {
+    gap: 20px;
+    margin-right: 0.3rem;
+  }
+  
+  .itens-icones-topo {
+    width: 1.3rem;
+  }
+}
+

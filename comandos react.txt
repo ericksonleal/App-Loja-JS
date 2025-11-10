@@ -1,0 +1,7 @@
+
+
+
+
+npx create-react-app - Para criar um projeto React na pasta atual
+
+npm start  - Para iniciar a aplicação

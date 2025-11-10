@@ -1,0 +1,28 @@
+.menu-itens {
+  font-family: Verdana, Tahoma, sans-serif;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  font-size: calc(5px + 2vmin);
+}
+
+.menu-item {
+  color: rgb(34, 32, 32);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 5px;
+  height: 100%;
+  padding: 0 5px;
+  cursor: pointer;
+  min-width: 120px; /* Define uma largura mínima para cada item do menu */
+  padding: 12px 15px; /* Adicione padding para melhor área de clique */
+  transition: all 0.3s ease-in-out; /* Move a transição para o estado normal */
+}
+
+.menu-item:hover {
+  color: #e7eaeb;
+  cursor: pointer;
+  scale: 103%;
+}

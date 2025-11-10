@@ -1,0 +1,45 @@
+
+
+.App-header{
+  background-color:#0dafd8;
+  box-shadow:0 20px 50px #0a778a;
+  display:grid;
+  grid-template-columns:auto; /* o fr significa flex-grow que significa encolher */
+  align-items:center;
+  justify-content: center;
+  top:0;
+
+  inline-size:100%;      /* = width, mas respeita escrita e evita bugs */
+  min-height:clamp(56px, 10svh, 120px);
+}
+
+/* Tablet */
+@media (max-width:1208px){
+  .App-header{ 
+    gap:10px;
+    margin: 0;
+    display: flex;
+    grid-template-columns: auto 1fr auto;
+    min-height:clamp(56px, 10svh, 120px);
+    }
+
+}
+
+@media (max-width:440px){
+  .App-header{
+    display: flex;
+
+    }
+}
+
+
+@media (max-width:360px){
+  .App-header{
+
+    margin: 0;
+
+
+    }
+}
+
+
