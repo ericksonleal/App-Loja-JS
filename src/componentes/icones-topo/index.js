@@ -4,10 +4,10 @@ import styled from 'styled-components';
 
 const IconesTopoContainer = styled.ul`
     gap: clamp(10px, 2vw, 20px); /* Gap responsivo */
-    list-style: none;
+
     align-items: center;
-    position: absolute;
     right: 2%;
+    position: absolute;
     display: flex;
 
   .itens-icones-topo {
@@ -23,7 +23,6 @@ const IconesTopoContainer = styled.ul`
   @media (max-width: 1208px) { 
       gap: 1rem;
       margin-right: 0.3rem;
-      position: fixed;
       right: 10px;
       top: 1%;
       order: 2;

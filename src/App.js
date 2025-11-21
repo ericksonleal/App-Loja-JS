@@ -1,8 +1,17 @@
 import Header from './componentes/header';
 import Pesquisa from './componentes/pesquisa';
 import styled from 'styled-components';
+import Footer from './componentes/footer';
+import Lancamentos from './componentes/lancamentos';
+import { Titulos } from './componentes/titulos';
+
+
 
 const AppContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap;  Talvez seja o melhor formato*/
+    flex: 1;
     font-family: apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     min-height: 100svh;              /* svh lida melhor com barras do mobile */
     background-position: center center;
@@ -13,11 +22,14 @@ const AppContainer = styled.div`
   
   /* Tablet */
   @media (max-width: 768px) {
+      display: flex;
       background-attachment: fixed; 
   }
     
   /*  ---------------------  Mobile */
   @media (max-width: 480px) {
+      display: flex;
+
   }
 
   /* Telas muito pequenas (mobile landscape) */
@@ -31,15 +43,14 @@ const AppContainer = styled.div`
 `
 
 function App() {
+
   return (
-
- 
     <AppContainer>
-        <Header />
-        <Pesquisa />
+      <Header />
+      <Pesquisa />
+      <Lancamentos />
+      <Footer />
     </AppContainer>
-
-
   );
 }
 

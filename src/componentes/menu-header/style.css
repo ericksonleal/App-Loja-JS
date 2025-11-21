@@ -14,7 +14,16 @@
   min-width: min-content; /* Largura mínima adaptável */
   white-space: nowrap; /* Impede quebra de texto */
   transition: all 0.3s ease-in-out;
+  overflow-x: scroll;
+  
+  cursor: grabbing;
+
+
+  
+
 }
+
+
 .itens-menuJS:hover {
   color: #e7eaeb;
   scale: 105%;

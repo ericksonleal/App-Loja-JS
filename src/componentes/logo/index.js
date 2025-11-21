@@ -43,7 +43,6 @@ const LogoContainer = styled.div`
   /* MEDIA QUERIES PARA RESPONSIVIDADE */
   @media (max-width: 1208px) {
       width: 60px;
-      position: fixed;
       font-size: 16px;
       top: 2%;
       order: 1;
