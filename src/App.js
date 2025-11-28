@@ -3,7 +3,7 @@ import Pesquisa from './componentes/pesquisa';
 import styled from 'styled-components';
 import Footer from './componentes/footer';
 import Lancamentos from './componentes/lancamentos';
-import { Titulos } from './componentes/titulos';
+// import { Titulos } from './componentes/titulos';
 
 
 
@@ -14,8 +14,8 @@ const AppContainer = styled.div`
     flex: 1;
     font-family: apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     min-height: 100svh;              /* svh lida melhor com barras do mobile */
-    background-position: center center;
-    background-repeat: no-repeat;
+    /*background-position: center center;*/
+    /*background-repeat: no-repeat;*/
     background-size: cover;           /* cobre toda a área */
     /* background-attachment: fixed;  <- evite em mobile (tremedeira) */
     background-image: linear-gradient(90deg, rgba(23, 236, 236, 0.8), rgb(126, 211, 200));
@@ -26,9 +26,17 @@ const AppContainer = styled.div`
       background-attachment: fixed; 
   }
     
+  @media (max-width: 640px) {
+
+
+
+
+  }
+
   /*  ---------------------  Mobile */
   @media (max-width: 480px) {
-      display: flex;
+      background-color: #fffefeff;
+  
 
   }
 

@@ -9,9 +9,7 @@ const BarraPesquisaContainer = styled.section`
     justify-content: center;
     align-items: center;
     min-height: clamp(56px, 10svh, 120px);
-    margin: 0;
     margin-top: 2rem;
-
 
     .form-pesquisa {
         display: flex;
@@ -80,11 +78,10 @@ const SectionJogosContainer = styled.section`
         justify-content: center;
         align-items: center;
         text-align: center;
-        margin-top: 2rem;
-        margin: 0 auto;
+
+        margin: 1rem 0 3rem auto;
         gap: 2rem;
         padding: 20px 40px;
-
 
 
     .resultados-pesquisa {
@@ -94,13 +91,15 @@ const SectionJogosContainer = styled.section`
         text-align: center;
         background-color: #fffefeff;
         box-shadow: 0 15px 30px #0c495cff;
-        padding: 15px;
+        padding: 1.5rem 1rem;
         border-radius: 10px;
         align-items: center;
-        height: auto;
+        height: 22rem;
         width: 15rem;
+        max-width: 2rem;
+        max-height: 4rem;
         transition: all 0.3s ease;
-
+        overflow: hidden;                        /* IMPORTANTE! Corta qualquer coisa que ultrapasse */
     }
     .resultados-pesquisa:hover {
         scale: 101%;
@@ -110,9 +109,9 @@ const SectionJogosContainer = styled.section`
         transition: all 0.3s ease-in-out;
     }
 
-    .descricao-jogo {
+    .titulo-warapper {
         display: flex;
-        margin: auto;
+        margin: 0;
         justify-content: center;
         text-align: center;
         align-items: center;
@@ -120,31 +119,57 @@ const SectionJogosContainer = styled.section`
         font-size: 18px;
         font-weight: bold;
         user-select: none;
+    }
+
+    .titulo-jogo {
+        display: flex;
+        margin: 0;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        width: 15rem;
+        font-size: 18px;
+        font-weight: bold;
+        user-select: none;
+        padding: 0;
+    }
+
+      .descricao-jogo {
+        display: flex;
+        margin: 0;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        width: 15rem;
+        color: #ac15b1ff;
+        font-size: 15px;
+        font-weight: bold;
+        user-select: none;
+        padding: 0;
 
     }
     .preco-pesquisa {
         display: flex;
         flex-wrap: wrap;
-        margin: 0.3rem;
+        margin: 0;
         font-size: 16px;
         color: #0d7515ff;
         margin-top: 0.4rem;
         font-weight: bold;
         user-select: none;
+        padding: 0;
     }
 
-    .img-pesquisa {
+    .img-capa {
         border: 3px solid #0c495cff;
-        display: static;
         justify-content: center;
         align-items: center;
-        width: 12rem;
-        height: 15rem;
-        max-width: 200px;
-        max-height: 250px;
+        max-width: 15rem;
+        max-height: 17rem;
         border-radius: 5px;
-        margin-top: 0.2rem;
+
         user-select: none;
+        margin: 0;
     }
 
     @media (max-width: 1460px) {
@@ -166,7 +191,7 @@ const SectionJogosContainer = styled.section`
         scale: 101%;
     }
 
-        .img-pesquisa {
+        .img-capa {
             width: 20rem;
             height: 25rem;
         }
@@ -189,65 +214,94 @@ const SectionJogosContainer = styled.section`
 
     }
 
-        .img-pesquisa {
-            width: 15rem;
-            height: 20rem;
-        }
     }
 
     @media (max-width: 720px) {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0;
-        padding: 0%;
+      gap: 1rem;
+      padding: 10px 20px;
 
 
       .resultados-pesquisa {
-          scale: 0.96;
-          gap: 0rem;
-          max-width: 80%;
-          max-height: 80%;
-  
-
-        }
-
+        scale: 0.98;
+        max-width: 100%;   /* não limita a 80% pra não quebrar o layout */
+      }
 
       .resultados-pesquisa:hover {
-          scale: 97%;
+        scale: 0.98;
+      }
     }
+
 
     @media (max-width: 640px) {
-        display: flex;
-        flex-wrap: wrap;
-        
-        gap: 0;
-        padding: 0%;
-
-    }
-        .resultados-pesquisa {
-
-
-        }
-    }
-
-    @media (max-width: 590px) {
             display: grid;
-            grid-template-columns: auto auto;
-
-            margin-left: 20px;
-
-
-
+            grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 colunas iguais */
+            column-gap: 0.2rem;
+            padding: 0.5rem 0rem;
+            box-sizing: border-box;          /* faz com que o padding seja contado na largura */
+            overflow: none;
+            width: 100%;
             
+          .resultados-pesquisa {
+            display: flex;
+            align-items: center;
+            margin: 0 auto;
+            width: 90%;
+            box-sizing: border-box;
+            height: 25rem; /* altura fixa padrão */
+            max-height: 25rem;                
+            background: #a0c5d4ec;
+            padding: 0.4rem 0.5rem;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px #0c495cff;
+            transform: scale(0.95);
+            transition: transform 0.3s ease, height 0.2s ease;
+
+          }
+
+          .resultados-pesquisa:hover {
+            transform: scale(1);
+            max-height: 26rem; 
             
+          }
+
+          .titulo-jogo {
+            margin: 0;
+            padding: 0 0.5rem;
+            width: 100%;
+            max-width: 150%;
+            text-align: center;
+            overflow: hidden; 
+            font-size: 16px;
+            white-space: pre-wrap;
+            text-align: start;
+            
+          }
 
 
-        .resultados-pesquisa {
-          background-color: #87f190ff;  /*A partir daqui muda a coluna*/
-          transform: scale(0.95);
-          padding: 1.5rem 0.5rem;
 
-        }
+          /* Gênero e preço continuam normais */
+          .descricao-jogo {
+            margin: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+            white-space: normal;
+          }
+
+          .preco-pesquisa {
+            margin: 0 0 0.5rem 0;
+            font-weight: bold;
+            color: #0a8f32;
+          }
+
+          .img-capa {   
+              user-select: none;
+  
+
+              max-width: 14rem;
+              max-height: 17rem;
+              margin: 0.1rem 0 0 0;
+          }
     }
 
     @media (max-width: 360px) {
@@ -255,6 +309,7 @@ const SectionJogosContainer = styled.section`
 
         .resultados-pesquisa:hover {
         transform: scale(0.91);
+        }
     }
     
 `
@@ -262,7 +317,6 @@ const SectionAvisoPesquisa = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: auto;
     font-size: 20px;
     color: #0c495cff;
     font-style: italic;
@@ -333,16 +387,16 @@ function Pesquisa() {
         </SectionAvisoPesquisa>
       </BarraPesquisaContainer>
 
-      <SectionJogosContainer>
-        {status === "ok" && jogosPesquisados.map((jogo) => (
-          <div className="resultados-pesquisa" key={jogo.id}>
-            <img className="img-pesquisa" src={jogo.src} alt={jogo.nome} width={100} />
-            <p className="descricao-jogo" style={{ marginTop: '0.1rem' }}>{jogo.nome}</p>
-            <p className="descricao-jogo" style={{fontSize: '14px', marginTop: '0.1rem'}}>Gênero: {jogo.categoria}</p>
-            <p className="preco-pesquisa">{jogo.preco}</p>
-          </div>
-        ))}
-      </SectionJogosContainer>
+<SectionJogosContainer>
+  {status === "ok" && jogosPesquisados.map((jogo) => (
+    <div className="resultados-pesquisa" key={jogo.id}>
+      <img className="img-capa" src={jogo.src} alt={jogo.nome} />
+      <p className="titulo-jogo">{jogo.nome}</p>
+      <p className="descricao-jogo">Gênero: {jogo.categoria}</p>
+      <p className="preco-pesquisa">{jogo.preco}</p>
+    </div>
+  ))}
+</SectionJogosContainer>
     </div>
   );
 }

@@ -1,10 +1,20 @@
 import perfil from '../../imagens/perfil.svg';
 import sacola from '../../imagens/sacola.svg';
 import styled from 'styled-components';
+import { FaRegUserCircle } from "react-icons/fa";
+// import { MdOutlineShoppingBag } from "react-icons/md"; Sacola
+import { HiOutlineShoppingCart } from "react-icons/hi";
+import { FcLike } from "react-icons/fc";
+import { MdFavoriteBorder } from "react-icons/md";
+
+
+
+
+
 
 const IconesTopoContainer = styled.ul`
     gap: clamp(10px, 2vw, 20px); /* Gap responsivo */
-
+    font-size: clamp(25px, 1.5vw, 30px); /* o clamp vai adaptar o tamanho da fonte de acordo com o tamanho da tela */
     align-items: center;
     right: 2%;
     position: absolute;
@@ -18,6 +28,8 @@ const IconesTopoContainer = styled.ul`
   }
   .itens-icones-topo:hover {
     scale: 108%;
+    color: #e7eaeb;
+    shadow: 0 0 10px #e7eaeb;
   }
   /* MEDIA QUERIES PARA RESPONSIVIDADE */
   @media (max-width: 1208px) { 
@@ -25,7 +37,7 @@ const IconesTopoContainer = styled.ul`
       margin-right: 0.3rem;
       right: 10px;
       top: 1%;
-      order: 2;
+
   }
   @media (max-width: 480px) {  
       gap: 20px;
@@ -42,11 +54,10 @@ const iconesTopo = [perfil, sacola];
 function IconesTopo() {
     return (
         <IconesTopoContainer>
-          {iconesTopo.map((icone) => (
-            <li key={icone} className='itens-icones-topo'>
-              <img src={icone} alt='icone' width={30}></img>
-            </li>
-          ))}
+            
+            <MdFavoriteBorder className='itens-icones-topo' />
+            <HiOutlineShoppingCart className='itens-icones-topo' />
+            <FaRegUserCircle className='itens-icones-topo' />
         </IconesTopoContainer>
     )
 }

@@ -8,26 +8,32 @@ const LancamentosContainer = styled.div`
 
     .titulo {
         display: flex;
-        margin: auto;                  /* Centralizar o conteúdo */
+        flex-wrap: wrap; /* Faz o conteúdo ficar em uma linha */
         justify-content: center;
-        align-items: center;
         text-align: center;
+
+        align-items: center;
+        padding: 0 0.5rem;
+        margin: auto; /* Centralizar o conteúdo */
         background-color: #0c495cff;
         box-shadow: 0px 0px 0px #0c495cff;
-        backdrop-filter: blur(30px);
+        backdrop-filter: blur(30px);                /*Efeito de blur/fosco*/
         border: 2px solid rgba(255, 255, 255, 0.18);
 
-        
         border-radius: 10px;
         border-top-left-radius: 50px 30px;   /* Borda arredondada no canto superior esquerdo */px 0px 0px;
-        
+        border-top-right-radius: 50px 30px;
         width: 50%;
-        
-
-        font-size: clamp(24px, 4vw, 36px);
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        box-sizing: border-box;
     }
 
+    p {
+        margin: 0;
+        font-size: clamp(1.5rem, 1.8vw, 2rem);
+        font-weight: bold;
+        color: #fff;
+        box-sizing: border-box;
+    }
 `
 
 const NovosLancamentos = styled.div`
@@ -73,7 +79,6 @@ const NovosLancamentos = styled.div`
         background: #021a2bff;
         border-radius: 20px;
 
-
     }
     &::-webkit-scrollbar-thumb { /* a parte que se move da barra de rolagem */
         background-color: #186981ff;
@@ -83,8 +88,7 @@ const NovosLancamentos = styled.div`
     }
     &::-webkit-scrollbar-thumb:hover { /* quando passar o mouse por cima da barra de rolagem */
         background-color: #1f7f9cff;
-        cursor: grab; /* para fazer a animação de abrir e fechar a mão use o  */
-        
+        cursor: grab; /* para fazer a animação de abrir e fechar a mão use o  */     
     }
 
     .jogos-lancamentos {
@@ -102,6 +106,7 @@ const NovosLancamentos = styled.div`
         width: 15rem;
         margin: 0;
         margin-top: 1rem;
+        backdrop-filter: blur(50px);                /*Efeito de blur/fosco*/
         
     }
 
@@ -113,14 +118,10 @@ const NovosLancamentos = styled.div`
         transition: all 0.3s ease-in-out;
     }
 
- 
-
-
     p {
         display: flex;
         justify-content: center;
         align-items: center;
-        
         margin: 5px 0;
         font-weight: bold;
         font-size: 16px;
@@ -156,9 +157,9 @@ const NovosLancamentos = styled.div`
         display: static;
         justify-content: center;
         align-items: center;
-        width: 11rem;
-        height: 14rem;
-        max-width: 200px;
+        width: 12.5rem;
+        height: 15rem;
+        max-width: 300px;
         max-height: 250px;
         border-radius: 5px;
         margin-top: 0.2rem;
@@ -191,19 +192,27 @@ function Lancamentos() {
     return (
 
         <LancamentosContainer>
-            <Titulos className="titulo" cor="#edf2f3ff">Ultimos Lancamentos:</Titulos>
+            <div className="titulo">
+            <Titulos cor="#fcfcfcff"><p>Ultimos Lancamentos</p></Titulos>
+            </div>
             <NovosLancamentos>
             {lancamentos.map((jogo) => (
                 <div className="jogos-lancamentos" key={jogo.id}>
                     <img className="img-jogo" src={jogo.src} alt={jogo.nome} width={200} />
                     <p className="jogo-lancamento">{jogo.nome}</p>
-                    <p className="jogo-lancamento">{jogo.categoria}</p>
+                    <p className="jogo-lancamento" style={{ fontSize: "15px"}}>Gênero: {jogo.categoria}</p>
                     <p className="preco">{jogo.preco}</p>
                 </div>
             ))}
             </NovosLancamentos>
           <SectionOpcional>
-            <h3>AEEE</h3>
+            <Titulos 
+                cor="#1625ffff" 
+                tamanhoFonte="50px" 
+                alinhamento="right"
+                alinhamentoConteudo="center"
+
+                >Testando PROPs</Titulos>
             
           </SectionOpcional>
   

@@ -5,18 +5,16 @@ const FooterContainer = styled.footer`
     bottom: 0;
     width: 100%;
     margin-top: auto;
-    
     justify-content: center;
     align-items: center;
-    background-color:  #021a2bff;
+    background-color:  #032d4eff;
+    border-top: 2px solid rgba(255, 255, 255, 0.18);
 
+    min-height:clamp(50px, 8vh, 100px);
     p {
         color: white;
         font-size: 16px;
     }
-
-
-    min-height:clamp(50px, 8vh, 100px);
 
     /* Tablet */
     @media (max-width:1208px){
@@ -26,7 +24,6 @@ const FooterContainer = styled.footer`
         min-height:clamp(56px, 10svh, 120px);   
     }
     @media (max-width:660px){
-        display: flex; 
 
     }
     @media (max-width:460px){

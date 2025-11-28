@@ -2,22 +2,33 @@ import styled from 'styled-components';
 
 
 const MenuHeaderContainer = styled.ul`
-    gap: clamp(0.5rem, 1.5vw, 1rem);
     display: flex;
+    gap: clamp(2rem, 2.5vw, 2.5rem);
     justify-content: center;
     margin: auto; /* Centraliza o menu */
     white-space: nowrap;       /* o item vai pra nova linha, não “explode” pro lado */
+    justify-content: space-between;
+
+    padding: 0;
+    width: 100%;
+
 
   .itens-menuJS {
     font-weight: bold;
     font-size: clamp(14px, 1.5vw, 18px); /* Fonte responsiva */
     color: rgb(34, 32, 32);
-    padding: 0.5rem clamp(0.5rem, 1.5vw, 1rem); /* Padding responsivo */
     list-style: none;
     cursor: pointer;
     min-width: min-content; /* Largura mínima adaptável */
     white-space: nowrap; /* Impede quebra de texto */
     transition: all 0.3s ease-in-out;
+    padding: 0;
+  }
+
+  p {
+    justify-content: center;
+    text-align: center;
+    font-size: clamp(14px, 1.5vw, 18px);
   }
   .itens-menuJS:hover {
     color: #e7eaeb;
@@ -26,74 +37,121 @@ const MenuHeaderContainer = styled.ul`
   /* MEDIA QUERIES PARA RESPONSIVIDADE */
   @media (max-width: 1208px) {
       display: flex;
+
       margin: auto;
       justify-content: center;
-      margin-top: 5rem;
+      padding: 0 0;
+      width: 50%;
+
+    
+    .itens-menuJS {
+      padding: 0rem 0.4rem;
+      font-size: 17px;
+      padding: 0 0;
+    }
+
+    p {
+      justify-content: center;
+      text-align: center;
+      font-size: 17px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+      display: flex;
+
+      margin: auto;
+      justify-content: center;
+      padding: 0;
+      width: 50%;
+
     
     .itens-menuJS {
       padding: 0rem 0.4rem;
       font-size: 17px;
       min-width: min-content;
+      padding: 0;
+    }
+
+    p {
+      justify-content: center;
+      text-align: center;
+      font-size: 16px;
     }
   }
-  @media (max-width: 655px) {
+
+  @media (max-width: 800px) {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 5px;
-      justify-content: center;
-      margin-top: 15%;
-      padding: 0px 10px;
+      grid-template-columns: repeat(4, 1fr);
+
+      
+      margin-top: 10%;
+      padding: 0;
+      width: 80%;
+
     
     .itens-menuJS {
       font-size: 16px;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 0px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 0;
+    }
+
+    p {
+      justify-content: center;
+      text-align: center;
+    }
+  }
+  
+  @media (max-width: 655px) {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      gap: 10px;
+      margin: 0 0;
+      margin-top: 14%;
+      padding: 0;
+
+      width: 80%;
+    
+    .itens-menuJS {
+      font-size: 16px;
+      width: 100%;
+      align-items: center;
+      text-align: center;
+      gap: 0px;
+      padding: 0;
+    }
+
+    p {
+      justify-content: center;
+      text-align: center;
     }
   }
   /*  ---------------------  Mobile */
   @media (max-width: 480px) {
       order: 3;
-      padding: 5px 10px;
 
-    .itens-menuJS {
-      font-size: 15px;}
-  }
-  @media (max-width: 440px) {
-      order: 3; 
-      justify-items: center;
-      align-items: center;
-      padding: 10px 10px;
-    
+      padding: 5px 10px;
+      width: 90%;
+      padding: 0;
+
     .itens-menuJS {
       font-size: 15px;
-    }
-  }
-  @media (max-width: 410px) {/* Telas muito pequenas (mobile landscape) */
-      gap: 1px;
-      order: 3; 
-      padding: 10px 10px;
-      justify-content: center;
-    
-    .itens-menuJS {
+      padding: 0;
+      }
 
+    p {
+      justify-content: center;
+      text-align: center;
       font-size: 14px;
+
     }
   }
-  @media (max-width: 370px) {
-      gap: 1px;
-      padding: 10px 10px;
-      order: 3; /* Coloca o menu embaixo em telas muito pequenas */
-      justify-content: center;
-    
-    .itens-menuJS {
-      font-size: 12px;
-    }
-  }
-  @media (max-width: 350px) {
-      gap: 1px;
-      order: 3; /* Coloca o menu embaixo em telas muito pequenas */
-      justify-content: center;
-  
-    .itens-menuJS {
-      font-size: 12px;
 `
 
 // import './style.css';

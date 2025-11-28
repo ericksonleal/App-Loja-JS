@@ -7,7 +7,7 @@ const LogoContainer = styled.div`
     align-items: center;
     padding: 0;
     left: 2%;
-    margin-right: 0;
+    margin: 0;
     flex-shrink: 0; /* Impede que a logo encolha demais */
 
   .App-logo {
@@ -45,7 +45,7 @@ const LogoContainer = styled.div`
       width: 60px;
       font-size: 16px;
       top: 2%;
-      order: 1;
+
      
     .nome-logo {
       font-size: 20px;
@@ -76,7 +76,6 @@ function Logo() {
       className='App-logo' 
       alt='logo' 
       width={60}>
-
       </img>
       <p className='nome-logo'>Game<strong>Store</strong></p>
     </LogoContainer>

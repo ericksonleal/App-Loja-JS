@@ -16,6 +16,7 @@ import ageofempires4 from '../../imagens/age-of-empires-4.png';
 import kingdomCome2 from '../../imagens/kingdom-come-deliverance-2.jpg';
 import sillenthill from '../../imagens/silent-hill-f.jpg'
 import indianajones from '../../imagens/indiana-jones.jpg'
+import baldursgate3 from '../../imagens/capa-baldurs-gate-3.jpg'
 
 
 
@@ -38,6 +39,7 @@ export const jogos = [
   { id: 16, nome: 'Kingdom Come: Deliverance 2 - Royal Edition', nomePopular: 'Kingdom Come', categoria: 'RPG', preco: 'R$ 300,00', src: kingdomCome2 },
   { id: 17, nome: "Silent Hill F", nomePopular: "Silent Hill", categoria: "Terror", preco: "R$ 199,00", src: sillenthill },
   { id: 18, nome: 'Indiana Jones And The Great Circle', nomePopular: 'Indiana Jones', categoria: 'Ação/Aventura', preco: 'R$ 250,00', src: indianajones },
+  { id: 19, nome: 'Baldurs Gate 3 - Digital Deluxe Edition', nomePopular: 'Baldurs Gate', categoria: 'RPG', preco: 'R$ 250,00', src: baldursgate3 },
 ]
 
 export const categorias = [

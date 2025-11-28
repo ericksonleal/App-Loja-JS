@@ -9,7 +9,8 @@ const HeaderContainer = styled.header`
     box-shadow:0 20px 50px #0a778a;
     display:grid;
     grid-template-columns:auto; /* o fr significa flex-grow que significa encolher */
-    align-items:center;
+    align-items: center;
+    justify-content: center;
     min-height:clamp(56px, 10svh, 120px);
 
     /* Tablet */
@@ -23,9 +24,12 @@ const HeaderContainer = styled.header`
     @media (max-width:660px){
         display: flex; 
 
+
+
     }
     @media (max-width:460px){
         margin: 0;
+
     }
 
 `
@@ -33,7 +37,7 @@ const HeaderContainer = styled.header`
 function Header() {
     return (
         <HeaderContainer>
-            <Logo className='logo' />
+            <Logo className='logo'/>
             <MenuHeader className='menu-header' />
             <IconesTopo className='icones-topo' />
         </HeaderContainer>

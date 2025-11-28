@@ -5,6 +5,7 @@
   grid-template-columns:auto; /* o fr significa flex-grow que significa encolher */
   align-items:center;
   min-height:clamp(56px, 10svh, 120px);
+
 }
 /* Tablet */
 @media (max-width:1208px){
