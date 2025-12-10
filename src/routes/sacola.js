@@ -1,23 +1,16 @@
-import Header from './componentes/header';
-import Pesquisa from './componentes/pesquisa';
-import styled from 'styled-components';
-import Footer from './componentes/footer';
-import Lancamentos from './componentes/lancamentos';
-// import { Titulos } from './componentes/titulos';
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 
 
-const AppContainer = styled.div`
+const SacolaContainer = styled.div`
     display: flex;
     flex-direction: column;
-    /* flex-wrap: wrap;  Talvez seja o melhor formato*/
     flex: 1;
     font-family: apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    min-height: 100svh;              /* svh lida melhor com barras do mobile */
-    /*background-position: center center;*/
-    /*background-repeat: no-repeat;*/
+    min-height: 81.8svh;              /* svh lida melhor com barras do mobile */
+
     background-size: cover;           /* cobre toda a área */
-    /* background-attachment: fixed;  <- evite em mobile (tremedeira) */
     background-image: linear-gradient(90deg, rgba(23, 236, 236, 0.8), rgb(126, 211, 200));
   
   /* Tablet */
@@ -50,16 +43,16 @@ const AppContainer = styled.div`
   }
 `
 
-function App() {
+function Sacola() {
+    return (
+        <SacolaContainer>
 
-  return (
-    <AppContainer>
-      <Header />
-      <Pesquisa />
-      <Lancamentos />
-      <Footer />
-    </AppContainer>
-  );
+            <h1>Minha Sacola:</h1>
+            <Link to="/">Home</Link>
+
+        </SacolaContainer>
+    )
 }
 
-export default App
+
+export default Sacola

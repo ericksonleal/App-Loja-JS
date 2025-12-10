@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import logo from '../../imagens/reddead-loading.png';
 import styled from 'styled-components';
 
@@ -9,6 +10,12 @@ const LogoContainer = styled.div`
     left: 2%;
     margin: 0;
     flex-shrink: 0; /* Impede que a logo encolha demais */
+
+  a:Link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
 
   .App-logo {
     pointer-events: none;
@@ -71,6 +78,7 @@ const LogoContainer = styled.div`
 function Logo() {
   return (
     <LogoContainer>
+      <Link to='/'> 
       <img 
       src={logo} 
       className='App-logo' 
@@ -78,6 +86,7 @@ function Logo() {
       width={60}>
       </img>
       <p className='nome-logo'>Game<strong>Store</strong></p>
+      </Link>
     </LogoContainer>
   );
 }

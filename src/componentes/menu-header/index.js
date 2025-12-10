@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
 
 
 const MenuHeaderContainer = styled.ul`
@@ -156,14 +158,18 @@ const MenuHeaderContainer = styled.ul`
 
 // import './style.css';
 
-const textoMenu = ['Início', , 'Novidades', 'Categorias', 'Minha Biblioteca'];
+const textoMenu = ['Início', 'Ofertas', 'Categorias', 'Biblioteca'];
 
 
 function MenuHeader() {
     return (
         <MenuHeaderContainer>
           {textoMenu.map((opcoesMenu) => (
-            <li key = {opcoesMenu} className='itens-menuJS'><p>{opcoesMenu}</p></li>
+            
+              <Link to={`/${opcoesMenu.toLowerCase()}`} ><li key = {opcoesMenu} className='itens-menuJS'>
+                <p>{opcoesMenu}</p></li>
+              </Link>
+              
           ))}
         </MenuHeaderContainer>
     );

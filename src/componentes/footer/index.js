@@ -5,6 +5,7 @@ const FooterContainer = styled.footer`
     bottom: 0;
     width: 100%;
     margin-top: auto;
+    margin-bottom: 0;
     justify-content: center;
     align-items: center;
     background-color:  #032d4eff;

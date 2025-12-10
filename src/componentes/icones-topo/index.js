@@ -1,15 +1,10 @@
-import perfil from '../../imagens/perfil.svg';
-import sacola from '../../imagens/sacola.svg';
 import styled from 'styled-components';
 import { FaRegUserCircle } from "react-icons/fa";
 // import { MdOutlineShoppingBag } from "react-icons/md"; Sacola
 import { HiOutlineShoppingCart } from "react-icons/hi";
-import { FcLike } from "react-icons/fc";
+//import { FcLike } from "react-icons/fc";
 import { MdFavoriteBorder } from "react-icons/md";
-
-
-
-
+import { Link } from 'react-router-dom';
 
 
 const IconesTopoContainer = styled.ul`
@@ -49,15 +44,13 @@ const IconesTopoContainer = styled.ul`
   }
 `
 
-const iconesTopo = [perfil, sacola];
 
 function IconesTopo() {
     return (
         <IconesTopoContainer>
-            
-            <MdFavoriteBorder className='itens-icones-topo' />
-            <HiOutlineShoppingCart className='itens-icones-topo' />
-            <FaRegUserCircle className='itens-icones-topo' />
+            <Link to='/favoritos'><MdFavoriteBorder className='itens-icones-topo' /></Link>
+            <Link to='/sacola'><HiOutlineShoppingCart className='itens-icones-topo' /></Link>
+            <Link to='/perfil'><FaRegUserCircle className='itens-icones-topo' /></Link>
         </IconesTopoContainer>
     )
 }

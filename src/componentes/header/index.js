@@ -37,7 +37,7 @@ const HeaderContainer = styled.header`
 function Header() {
     return (
         <HeaderContainer>
-            <Logo className='logo'/>
+            <Logo className='logo' pathname='/'/>
             <MenuHeader className='menu-header' />
             <IconesTopo className='icones-topo' />
         </HeaderContainer>

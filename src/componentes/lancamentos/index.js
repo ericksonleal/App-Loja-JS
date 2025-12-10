@@ -193,7 +193,7 @@ function Lancamentos() {
 
         <LancamentosContainer>
             <div className="titulo">
-            <Titulos cor="#fcfcfcff"><p>Ultimos Lancamentos</p></Titulos>
+            <Titulos cor="#fcfcfcff"><p>Ultimos Lançamentos</p></Titulos>
             </div>
             <NovosLancamentos>
             {lancamentos.map((jogo) => (

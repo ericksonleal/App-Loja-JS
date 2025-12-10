@@ -1,0 +1,11 @@
+Styled-Components:
+npm install styled-components
+
+React-Router:
+npm install react-router-dom
+
+React-Icons:
+npm install react-icons  
+
+Axios:
+npm install axios
