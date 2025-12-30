@@ -4,10 +4,8 @@ import styled from 'styled-components';
 
 const LogoContainer = styled.div`
     display: flex;
-    position: absolute;
     align-items: center;
     padding: 0;
-    left: 2%;
     margin: 0;
     flex-shrink: 0; /* Impede que a logo encolha demais */
 
@@ -49,9 +47,7 @@ const LogoContainer = styled.div`
 
   /* MEDIA QUERIES PARA RESPONSIVIDADE */
   @media (max-width: 1208px) {
-      width: 60px;
       font-size: 16px;
-      top: 2%;
 
      
     .nome-logo {
@@ -60,6 +56,10 @@ const LogoContainer = styled.div`
       flex-shrink: 0;
     }
   }
+  @media (max-width: 640px) {
+        transform: scale(0.9);
+  }
+
   @media (max-width: 480px) { 
       width: 60px;
 

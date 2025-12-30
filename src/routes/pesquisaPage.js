@@ -1,86 +1,28 @@
 import styled from "styled-components";
-import { PiMagnifyingGlassBold } from "react-icons/pi";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { getProdutos } from "../../services/produtos";
-// import { catalago } from "./dadosPesquisa"; #Em desuso 
+import { useEffect, useMemo, useState } from "react";
+import { useSearchParams, Link } from "react-router-dom";
+import { getProdutos } from "../services/produtos"; // ajuste o caminho
+import { getProdutosPorCategoria } from "../services/produtos"; // novo import
 
-const BarraPesquisaContainer = styled.section`
+
+const PageContainer = styled.div`
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    min-height: clamp(56px, 10svh, 120px);
-    margin-top: 2rem;
-
-    .form-pesquisa {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0;
-    }
-
-    .barra-pesquisa {
-        width: 300px;
-        background-color: #ffffffff;
-        /* box-shadow: 0 20px 50px #0c495cff; */
-        max-width: 300px;
-        height: 50px;
-        border-radius: 15px;
-        border: none;
-        padding: 0 20px;}
-
-        .barra-pesquisa:focus {
-            outline: none;
-        }
-
-        .barra-pesquisa::placeholder {
-            color: #0c495cff;
-            font-size: 16px;
-            font-style: italic;
-        }
-
-
-
-    .botao-pesquisa {
-        display: flex;
-        margin: 0;
-        background-color: #0c495c9d;
-        border: none;
-        padding: 15px;
-        font-size: 22px;
-        border-radius: 15px;
-        color: #e5e9ebff;
-        cursor: pointer;
-        margin-left: 10px;
-    }
-
-    .botao-pesquisa:hover {
-        background-color: #0c495cff;
-        scale: 105%;
-        transition: all 0.3s ease-in-out;
-    }
-
-    @media (max-width: 1208px) {
-        scale: 0.9;
-    }
-
-    @media (max-width: 640px) {
-        scale: 0.8;
-    }
-
-    @media (max-width: 360px) {
-        scale: 0.7;
-    }
-
+    background-size: cover;           
+    background-image: linear-gradient(90deg, rgba(23, 236, 236, 0.8), rgb(126, 211, 200));
+    background-attachment: fixed;
+    min-height: 81.8svh;
 `
+
 const SectionProdutosContainer = styled.section`
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
         text-align: center;
-        margin: 1rem 0 3rem auto;
         gap: 1.5rem;
 
 
@@ -308,78 +250,74 @@ const SectionAvisoPesquisa = styled.div`
         scale: 0.9;
     }`
 
-
-function Pesquisa() {
-  const [q, setQ] = useState(""); // q = query (consulta)
-  const [produtosPesquisados, setProdutosPesquisados] = useState([]); // resultados da pesquisa
-  const [status, setStatus] = useState("idle"); // idle(sem pesquisa ainda) | empty | ok | no-results | 
+function PesquisaPage() {
+  const [params] = useSearchParams();
+  const q = (params.get("q") || "").trim().toLowerCase();
 
   const [produtos, setProdutos] = useState([]);
+  const [status, setStatus] = useState("idle");
 
   useEffect(() => {
+    async function fetchProdutos() {
+      const produtosDaAPI = await getProdutos();
+
+      //const produtosFiltrados = await getProdutosPorCategoria("RPG"); <-- Exemplo de uso da nova função
+      // PARA SER USADO NO FILTRO DE CATEGORIA - PRECISO IDEALIZAR A PÁGINA DE CATEGORIAS PRIMEIRO
+      setProdutos(produtosDaAPI);
+    }
     fetchProdutos();
   }, []);
 
-  async function fetchProdutos() {  
-      const produtosDaAPI = await getProdutos()
-      setProdutos(produtosDaAPI);
-    };
+const produtosPesquisados = useMemo(() => {
+  if (!q) return [];
 
-  const handleSubmit = (evento) => {  // handleSubmite é uma função que recebe um evento para ser executada
-    // e = evento. O handleSubmit recebe um evento
+  return produtos.filter((produto) =>
+    (produto.nome && produto.nome.toLowerCase().includes(q)) ||
+    (produto.categoria && produto.categoria.toLowerCase().includes(q)) ||
+    (Array.isArray(produto.termoBusca) &&
+      produto.termoBusca.some((termo) =>
+        String(termo).toLowerCase().includes(q)
+      ))
+  );
+}, [q, produtos]);
 
-    console.log("handleSubmit foi chamado"); // -----------------------------------
-    evento.preventDefault(); // prevenir reload da página
+  useEffect(() => {
+    if (!params.get("q")) setStatus("idle");
+    else if (!q) setStatus("empty");
+    else setStatus(produtosPesquisados.length ? "ok" : "no-results");
+  }, [q, params, produtosPesquisados.length]);
 
-    const textoDigitado = q.trim().toLowerCase(); // o trim é para tirar os espaços em branco 
-    if (!textoDigitado) { // o "!" funciona como "se não houver texto"
-      setProdutosPesquisados([]);
-      setStatus("empty");            // nada digitado
-      return;
-    }
+  return (
+    <PageContainer>
+      {/* Mensagens */}
+        <SectionAvisoPesquisa>
+            {status === "empty" && <p className="hint">Digite algo para pesquisar.</p>}
+            {status === "no-results" && <p className="hint">Nenhum resultado para sua pesquisa.</p>}
+            {status === "ok" && ( <p className="hint">
+                Encontramos <strong>{produtosPesquisados.length} resultado(s)</strong> para sua pesquisa:
+                </p>
+            )}
+        </SectionAvisoPesquisa>
 
-    if (!produtos.length) {
-      console.log("Produtos ainda não carregaram");
-      setStatus("idle"); // ou "loading"
-      return;
-}
-
-
-
-
-  };
-  
-  return ( // o onSubmit faz com que a função handleSubmit seja executada ao enviar o formulário
-    <div className="section-pesquisa">
-      <BarraPesquisaContainer> 
-        <form onSubmit={handleSubmit} className="form-pesquisa"> 
-          <input
-            className="barra-pesquisa"
-            type="text"
-            placeholder="Pesquise na loja"
-            value={q}
-            onChange={(e) => setQ(e.target.value)}
-          />
-          <button type="submit" className="botao-pesquisa" aria-label="Buscar">
-            <PiMagnifyingGlassBold />
-          </button>
-        </form>
-      {/* Mensagens de feedback */}
-      </BarraPesquisaContainer>
-
-<SectionProdutosContainer>
-  {status === "ok" && produtosPesquisados.map((produto) => (
-    <div className="resultados-pesquisa" key={produto.id}>
-      <img className="img-capa" src={produto.src} alt={produto.nome} />
-      <p className="titulo-produto">{produto.nome}</p>
-      <p className="descricao-produto">Gênero: {produto.categoria}</p>
-      <p className="preco-pesquisa">{produto.preco}</p>
-    </div>
-  ))}
-</SectionProdutosContainer>
-    </div>
+      {/* Lista */}
+      <SectionProdutosContainer>
+        {status === "ok" &&
+          produtosPesquisados.map((produto) => (
+            <Link
+              key={produto.id}
+              to={`/produto/${produto.id}`}
+              className="resultados-pesquisa"
+            >
+              <img className="img-capa" src={produto.src} alt={produto.nome} />
+              <p className="titulo-produto">{produto.nome}</p>
+              <p className="descricao-produto">Gênero: {produto.categoria}</p>
+              <p className="preco-pesquisa">{produto.preco}</p>
+            </Link>
+          ))}
+      </SectionProdutosContainer>
+    </PageContainer>
   );
 }
 
-export default Pesquisa;
 
+export default PesquisaPage;

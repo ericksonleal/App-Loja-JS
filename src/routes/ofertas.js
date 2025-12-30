@@ -8,7 +8,6 @@ const OfertasContainer = styled.div`
     display: flex;
     flex-direction: column;
     min-height: 81.8svh;
-
     background-size: cover;           /* cobre toda a área */
     background-image: linear-gradient(90deg, rgba(23, 236, 236, 0.8), rgb(126, 211, 200));
 

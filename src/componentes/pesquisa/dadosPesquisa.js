@@ -20,7 +20,7 @@ import baldursgate3 from '../../imagens/capa-baldurs-gate-3.jpg'
 
 
 
-export const jogos = [
+export const catalago = [
   { id: 1, nome: 'Red Dead Redemption 2', nomePopular: 'Red Dead', categoria: 'Ação/Aventura', preco: 'R$ 250,00', src: reddead2 },
   { id: 2, nome: 'The Witcher 3: Wild Hunt', nomePopular: 'Witcher', categoria: 'RPG', preco: 'R$ 120,00', src: witcher3 },
   { id: 3, nome: 'Grand Theft Auto VI', nomePopular: 'GTA VI', categoria: 'Ação/Aventura', preco: 'R$ 500,00', src: gta6 },

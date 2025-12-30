@@ -14,7 +14,6 @@ const CategoriasContainer = styled.div`
     h1{
         display: flex;
         padding: 0rem;
-        background-color: #073657ff;
         justify-content: center;
         align-items: center;
         margin-top: 0;

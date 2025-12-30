@@ -7,10 +7,9 @@ const MenuHeaderContainer = styled.ul`
     display: flex;
     gap: clamp(2rem, 2.5vw, 2.5rem);
     justify-content: center;
-    margin: auto; /* Centraliza o menu */
+    margin: 0; 
     white-space: nowrap;       /* o item vai pra nova linha, não “explode” pro lado */
-    justify-content: space-between;
-
+    justify-content: center;
     padding: 0;
     width: 100%;
 
@@ -18,7 +17,7 @@ const MenuHeaderContainer = styled.ul`
   .itens-menuJS {
     font-weight: bold;
     font-size: clamp(14px, 1.5vw, 18px); /* Fonte responsiva */
-    color: rgb(34, 32, 32);
+    color: rgba(229, 229, 235, 1);
     list-style: none;
     cursor: pointer;
     min-width: min-content; /* Largura mínima adaptável */
@@ -33,7 +32,7 @@ const MenuHeaderContainer = styled.ul`
     font-size: clamp(14px, 1.5vw, 18px);
   }
   .itens-menuJS:hover {
-    color: #e7eaeb;
+    color: #42b7dfff;
     scale: 105%;
   }
   /* MEDIA QUERIES PARA RESPONSIVIDADE */
@@ -85,9 +84,6 @@ const MenuHeaderContainer = styled.ul`
   @media (max-width: 800px) {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-
-      
-      margin-top: 10%;
       padding: 0;
       width: 80%;
 
@@ -115,7 +111,6 @@ const MenuHeaderContainer = styled.ul`
 
       gap: 10px;
       margin: 0 0;
-      margin-top: 14%;
       padding: 0;
 
       width: 80%;

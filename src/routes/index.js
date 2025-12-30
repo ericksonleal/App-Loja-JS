@@ -2,6 +2,7 @@ import Pesquisa from '../componentes/pesquisa';
 import styled from 'styled-components';
 import Lancamentos from '../componentes/lancamentos';
 import TesteBackend2 from '../services/testeBackend2';
+import { getProdutos } from "../services/produtos"; // ajuste o caminho
 // import { Titulos } from './componentes/titulos';
 
 const AppContainer = styled.div`
@@ -49,9 +50,7 @@ function Home() {
 
   return (
     <AppContainer>
-      <TesteBackend2 />
-      <Pesquisa />
-      <Lancamentos />
+
     </AppContainer>
   );
 }

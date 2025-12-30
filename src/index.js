@@ -12,6 +12,8 @@ import Perfil from './routes/perfil';
 import Sacola from './routes/sacola';
 import Ofertas from './routes/ofertas';
 import Categorias from './routes/categorias';
+import PesquisaPage from './routes/pesquisaPage';
+import ProdutoPage from './routes/produtoPage';
 
 
 
@@ -32,12 +34,20 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 
+  a:visited {
+    color: inherit;
+  }
+
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',monospace;
   }
 
   li {
     list-style: none;
+  }
+
+  ul {
+    padding: 0;
   }
 
 
@@ -56,6 +66,8 @@ root.render(
         <Route path="/" element={<Home />} />
         <Route path="/ofertas" element={<Ofertas />} />
         <Route path="/categorias" element={<Categorias />} />
+        <Route path="/pesquisa" element={<PesquisaPage />} />
+        <Route path="/produto/:id" element={<ProdutoPage />} />
         <Route path="/biblioteca" element={<Biblioteca />} />
         <Route path="/favoritos" element={<Favoritos />} />
         <Route path="/sacola" element={<Sacola />} />
